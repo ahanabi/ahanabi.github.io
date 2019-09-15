@@ -1,1 +1,1379 @@
-hello world
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="ahanabi">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="ahanabi">
+    
+    <meta name="keywords" content="ahanabi's NoteBook">
+    
+    <meta name="description" content="It's Funky's NoteBook">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Funky&#39;s NoteBook</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+    body {
+        margin: 0;
+    }
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/gun.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</head>
+
+    
+        <body class="home-body">
+    
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header index-header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <a class="home-link" href=/>Funky's NoteBook</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+height:50vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 文章页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            Funky's NoteBook
+            <!-- 文章页  -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+                it's better to burn out than to fade away
+            
+            <!-- 文章页  -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+      async(arr[0], success, currReject)
+  }
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main index-page">
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/04/17/Kubernetes-s-API/" >
+            
+                <span>Kubernetes&#39;s API</span>
+        </a>
+        <div class="abstract-content">
+            Kubernetes 声明式 APIKubernetes 项目中，一个API 对象在 Etcd 里的完整资源路径由：Group（API 组）、Version（API 版本）和 Resource (API 资源类型）三部分组成。
+
+通过该图可以清楚看见 kubernetes 里 API 组织方式是层层递进的。
+123apiVersion: batch/v2alpha1kind: CronJob...
+当Group和完整的版本保证后，kind标识版本下的对象，此时APIServer 就可以创建这个对象了。
+
+首先发起 创建 CronJob 的 Post 请求后，我们编写的 YAML 的信息就...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/17</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "k8s">k8s</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/27/Istio-s-traffic-management/" >
+            
+                <span>Istio&#39;s traffic management</span>
+        </a>
+        <div class="abstract-content">
+            Istio 流量管理使用 Istio 的流量管理模型，本质上是将流量与基础设施扩容解耦，让运维人员可以通过 Pilot 指定流量遵循什么规则，而不是指定哪些 pod/VM 应该接收流量——Pilot 和智能 Envoy 代理会帮我们搞定。因此，例如，您可以通过 Pilot 指定特定服务的 5％ 流量可以转到金丝雀版本，而不必考虑金丝雀部署的大小，或根据请求的内容将流量发送到特定版本。
+
+将流量从基础设施扩展中解耦，这样就可以让 Istio 提供各种独立于应用程序代码之外的流量管理功能。 除了 A/B 测试的动态请求路由，逐步推出和金丝雀发布之外， 它还使用超时、重试和熔断器来处理故障恢复...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/27</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/27/Views-about-the-struct-of-istio/" >
+            
+                <span>Views about the struct of istio</span>
+        </a>
+        <div class="abstract-content">
+            浅谈 Istio 架构​    使用云平台可以为组织提供丰富的好处。然而，不可否认的是，采用云可能会给 DevOps 团队带来压力。开发人员必须使用微服务以满足应用的可移植性，同时运营商管理了极其庞大的混合和多云部署。
+​    在较高的层次上，Istio 有助于降低这些部署的复杂性，并减轻开发团队的压力。它是一个完全开源的服务网格，可以透明地分层到现有的分布式应用程序上。它也是一个平台，包括允许它集成到任何日志记录平台、遥测或策略系统的 API。Istio 的多样化功能集使您能够成功高效地运行分布式微服务架构，并提供保护、连接和监控微服务的统一方法。
+什么是服务网格？​    服务网格...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/27</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "istio">istio</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/25/Install-istio-with-helm/" >
+            
+                <span>Install Istio using helm</span>
+        </a>
+        <div class="abstract-content">
+            使用 Helm 安装 istio v1.1一、下载 Istio1、你可以通过以下官方提供的脚本安装最新版本的 istio，也可以通过设置ISTIO_VERSION对应的版本安装指定版本的 istio：
+1$ curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.1.0 sh -
+执行完毕您将看见如下输出：
+12345678910111213  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current                  ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/25</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "istio">istio</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/18/Install-Helm-with-k8s/" >
+            
+                <span>Install Helm for k8s</span>
+        </a>
+        <div class="abstract-content">
+            为 Kubernetes 集群安装 HelmStep1:  使用官方提供的脚本安装 Helm：使用以下命令安装 Helm：
+123curl https://raw.githubusercontent.com/helm/helm/master/scripts/get &gt; get_helm.shchmod 700 get_helm.sh./get_helm.sh
+在命令行执行：
+1helm
+如果你看见以下输入说明 Helm 安装成功：
+123456789101112131415161718192021222324252627282930The Kubernetes package ma...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/15/Install-K8S-dashboard/" >
+            
+                <span>Install K8S dashboard with ingress</span>
+        </a>
+        <div class="abstract-content">
+            安装 kubernetes dashboard（仪表盘）同时开启 ingressKubernetes Dashboard是Kubernetes集群的基于Web的通用UI。 它允许用户管理在群集中运行的应用程序并对其进行故障排除，以及管理群集本身。
+Step1: 为 dashboard 创建 service account我们创建一个命名空间在 kube-system 中， 名为 kubernetes-dashboard 的 Service Account:
+12345apiVersion: v1kind: ServiceAccountmetadata:  name: kubernetes...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/15</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "k8s">k8s</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/03/10/Install-K8S-with-kubeadm/" >
+            
+                <span>Install a single master K8S cluster with kubeadm</span>
+        </a>
+        <div class="abstract-content">
+            Prestep: 使用 kubdeadm 安装 K8S 前每个节点：
+
+关闭swap
+关闭selinux
+关闭防火墙
+集群里的每个节点的/etc/hosts都要有所有节点ip和与其对应的hostname
+docker安装完毕 
+让系统内核开启网络转发
+
+关闭 Swap（每个节点）12swapoff -a &amp;&gt;/dev/nullsed  -i '/\s\+swap\s\+/d' /etc/fstab  &amp;&gt;/dev/null
+关闭 Selinux（每个节点）1234567891011121314setenforce 0 cat &gt; /etc/selinux...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/03/10</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "k8s">k8s</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/24/Go-Core-Interface/" >
+            
+                <span>Go Core Dev Interface</span>
+        </a>
+        <div class="abstract-content">
+            接口接口是一个编程规约，一组方法签名的组合。接口是没有具体实现的逻辑，不能定义字段
+
+变量和实例
+
+实例里蕴含了变量值、变量类型和附着在类型上的方法等语义。实例和面向对象编程中的对象改了类似，我们使用实例来代表具体类型的变量，接口变量只有值和类型的概念，所有接口类型变量仍然称为接口变量，接口内部存放的具体类型变量被称为接口指向的实例。接口只有声明没有实现，所有定义一个新接口，通常又变成声明一个新接口，定义接口和声明接口两者代表相同的意思。
+
+空接口
+
+最常使用的接口字面量类型就是空接口 interface{} ，由于空接口的方法集为空，所以任意类型都被认为实现了空接口，任意类型的实例都可...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/24</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Go">Go</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/23/Go-Core-TypeSystem/" >
+            
+                <span>Go Core Dev Type-System</span>
+        </a>
+        <div class="abstract-content">
+            类型系统命名类型 &amp; 未命名类型1234567891011121314151617181920package mainimport "fmt"type Person struct &#123;    name string    age int&#125;func main() &#123;    // 使用 struct 字面量声明的是未命名类型    a := struct &#123;        name string        age int    &#125;&#123;"andes", 18&#125;    fmt.Printf("%T\n", a)    ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/23</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Go">Go</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/2019/01/17/Go-Core-Function/" >
+            
+                <span>Go Core Dev Function</span>
+        </a>
+        <div class="abstract-content">
+            函数
+声明格式
+
+123func funcName(param-list)(result-list)&#123;    function body&#125;
+
+特点
+
+可以无传入参数和返回值（默认返回0）
+
+123456789func A() &#123;    //do something&#125;func A() int &#123;	// do something    ...    return 1&#125;
+
+多个相邻的相同类型的参数可以使用简写模式
+
+123func add(a, b int) int &#123;    return a + b&#125;
+
+支持有名...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/17</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "Go">Go</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    <!-- paginator  -->
+    
+    <nav class="page-nav">
+        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">NEXT &#62;</a>
+    </nav>
+    
+</main>
+            <!-- profile -->
+            
+            <div class="profile">
+    <img class="profile-avatar" alt="avatar" src= //gravatar.com/avatar/d5306339b6b856577b7c3cef7a805a80?s=200 >
+    <div class="profile-name">Linus Lee</div>
+    
+    <div class="profile-signature">
+        Coding everything.
+    </div>
+    
+    
+    <div class="profile-social">
+        
+    
+        
+            
+                <a href="mailto:708863861@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/mr-linus" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    
+        <div class="friends">
+            <div>FRIENDS</div>
+            
+                
+                    <span>
+                        <a href= //geekchen.top target="_black">SuperChen</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href= //zhangguanzhang.github.io target="_black">Zhangguanzhang</a>
+                    </span>
+                
+            
+        </div>
+    
+    
+        <div class="about-me">
+            <a href = "/about" >ABOUT ME</a>
+        </div>
+    
+</div>
+            
+        </div>
+        <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+    <div class="social">
+        
+    
+        
+            
+                <a href="mailto:708863861@qq.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/mr-linus" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- 不蒜子  -->
+    
+    <div class="busuanzi-container">
+    
+     
+    <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+    
+    </div>
+    
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 24
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/17</span><a class="archive-post-title" href= "/2019/04/17/Kubernetes-s-API/" >Kubernetes's API</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/27</span><a class="archive-post-title" href= "/2019/03/27/Istio-s-traffic-management/" >Istio's traffic management</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/27</span><a class="archive-post-title" href= "/2019/03/27/Views-about-the-struct-of-istio/" >Views about the struct of istio</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/25</span><a class="archive-post-title" href= "/2019/03/25/Install-istio-with-helm/" >Install Istio using helm</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/18</span><a class="archive-post-title" href= "/2019/03/18/Install-Helm-with-k8s/" >Install Helm for k8s</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/15</span><a class="archive-post-title" href= "/2019/03/15/Install-K8S-dashboard/" >Install K8S dashboard with ingress</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/10</span><a class="archive-post-title" href= "/2019/03/10/Install-K8S-with-kubeadm/" >Install a single master K8S cluster with kubeadm</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/24</span><a class="archive-post-title" href= "/2019/01/24/Go-Core-Interface/" >Go Core Dev Interface</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/23</span><a class="archive-post-title" href= "/2019/01/23/Go-Core-TypeSystem/" >Go Core Dev Type-System</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/17</span><a class="archive-post-title" href= "/2019/01/17/Go-Core-Function/" >Go Core Dev Function</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/15</span><a class="archive-post-title" href= "/2019/01/15/Go-Core-Base/" >Go Core Dev Base</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/09</span><a class="archive-post-title" href= "/2018/09/09/Go-Primer/" >Go Primer</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/24</span><a class="archive-post-title" href= "/2018/08/24/contribute-to-opensource/" >How to contribute to open source projects</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/20</span><a class="archive-post-title" href= "/2018/08/20/Linux-namespace/" >Views about Namespace & Cgroups of Linux Kernel</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/17</span><a class="archive-post-title" href= "/2018/07/17/K8S-InfoCollection/" >Kubernetes Information Collection</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/01</span><a class="archive-post-title" href= "/2018/07/01/Scraping-Primer/" >Scraping-Primer</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/21</span><a class="archive-post-title" href= "/2018/06/21/Linux-Primer/" >Linux-Primer</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/15</span><a class="archive-post-title" href= "/2018/06/15/Docker-faq/" >Docker-FAQ</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2017 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/Binary-tree/" >Binary tree  of Data Structure</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">12/12</span><a class="archive-post-title" href= "/2017/12/12/Graph-traversal/" >Graph traversal  of Data Structure</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/28</span><a class="archive-post-title" href= "/2017/10/28/search/" >Search of Data Structure</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/24</span><a class="archive-post-title" href= "/2017/10/24/struct/" >Concept of Data Structure</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/23</span><a class="archive-post-title" href= "/2017/10/23/sort/" >Sort of Data Structure</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/20</span><a class="archive-post-title" href= "/2017/10/20/Docker-Primer/" >Docker-Primer</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="Data Structure"><span class="iconfont-archer">&#xe606;</span>Data Structure</span>
+    
+        <span class="sidebar-tag-name" data-tags="Go"><span class="iconfont-archer">&#xe606;</span>Go</span>
+    
+        <span class="sidebar-tag-name" data-tags="docker"><span class="iconfont-archer">&#xe606;</span>docker</span>
+    
+        <span class="sidebar-tag-name" data-tags="k8s"><span class="iconfont-archer">&#xe606;</span>k8s</span>
+    
+        <span class="sidebar-tag-name" data-tags="istio"><span class="iconfont-archer">&#xe606;</span>istio</span>
+    
+        <span class="sidebar-tag-name" data-tags="scraping"><span class="iconfont-archer">&#xe606;</span>scraping</span>
+    
+        <span class="sidebar-tag-name" data-tags="Linux"><span class="iconfont-archer">&#xe606;</span>Linux</span>
+    
+        <span class="sidebar-tag-name" data-tags="open-source"><span class="iconfont-archer">&#xe606;</span>open-source</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "Linus Lee"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+     
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>
